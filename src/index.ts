@@ -1,16 +1,11 @@
-import express from 'express'
-import morgan from 'morgan'
-import cors from 'cors'
-require('dotenv').config();
+require("dotenv").config();
+import app from "./app";
 
-const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
-app.use(cors());
-app.use(morgan("dev"));
-app.use(express.json());
 
-app.listen(PORT)
+
+app.listen(3000)
 console.log(`Server in listening on port ${PORT} `);
 

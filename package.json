@@ -1,14 +1,16 @@
 {
   "name": "typeormnode",
   "version": "1.0.0",
-  "description": "",
+  "description": "CRUD with typeorm, postgres, node, express, typescript",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build" : "tsc",
+    "start" : "node build/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Marcelo Diaz",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.2",

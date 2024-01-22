@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata");
 require("dotenv").config();
-const express_1 = __importDefault(require("express"));
-const app = (0, express_1.default)();
-//import app from "./app";
-const PORT = process.env.PORT;
-app.listen(PORT);
-console.log(`Server in listening on port ${PORT} `);
+const app_1 = __importDefault(require("./app"));
+const port = 3000;
+app_1.default.listen(port, () => {
+    console.log(`Server in listening on port ${port}`);
+});
+//nota : la compilacion se hace manual con tsc y eso nos permite luego usar node build/index.js

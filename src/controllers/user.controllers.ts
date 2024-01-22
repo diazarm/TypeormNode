@@ -17,7 +17,35 @@ export const postUserContoller = async(req : Request, res : Response) => {
        }       
 }
 
-export const getUserController = (req: Request, res: Response) =>{
-  let userId= req.params.userId;
+export const getUserController = async(req: Request, res: Response) =>{
+  try {
+    const users = await User.find();
+    return res.status(200).json(users);
+  } catch (error) {
+    if (error instanceof Error){
+        return res.status(500).json({message : error.message})
+    }
+  }
+}
+
+export const putUserController = async(req : Request, res : Response) => {
+    const {id} = req.params
+    const {userName, email, isActive} = req.body
+    try {
+        const userId = parseInt(id, 10);
+        const user = await User.findOne({ where: { id: userId } })
+        if (!user) return res.status(400).json({message : "User does not exists"});
+    
+        user.userName = userName;
+        user.email = email;
+        user.isActive = isActive;
+        user.save()
+        return res.status(200).json('received ok!');
+    } catch (error) {
+        if (error instanceof Error){
+            return res.status(500).json({message : error.message})
+        }
+    }
+
     
 }

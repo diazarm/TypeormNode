@@ -71,3 +71,16 @@ export const deleteUserController = async (req: Request, res: Response)=>{
     }}
 }
 
+
+export const getOneUserController = async (req:Request,res:Response)=>{
+    const {id} = req.params;
+    try {
+        const userId = parseInt(id, 10);
+        const user = await User.findOne({ where: { id: userId } })
+        if (!user) return res.status(400).json({message : "User does not exists"});
+        return res.status(200).json(user)
+    } catch (error) {
+        if (error instanceof Error){
+            return res.status(500).json({message : error.message})}
+    }
+}

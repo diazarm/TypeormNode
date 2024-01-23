@@ -24,4 +24,3 @@ async function main(){
 main()
 
 
-//nota : la compilacion se hace manual con tsc y eso nos permite luego usar node build/index.js

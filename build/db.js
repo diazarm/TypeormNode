@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppDataSource = void 0;
 const typeorm_1 = require("typeorm");
+const Users_1 = require("./entities/Users");
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 exports.AppDataSource = new typeorm_1.DataSource({
@@ -13,7 +14,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     database: DB_NAME,
     synchronize: true,
     logging: true,
-    entities: [],
+    entities: [Users_1.User],
     subscribers: [],
     migrations: [],
 });

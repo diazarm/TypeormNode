@@ -2,10 +2,10 @@ import "reflect-metadata"
 require("dotenv").config();
 import app from "./app";
 import {AppDataSource} from "./db"
-require("dotenv").config();
+
 
 const {DB_NAME} = process.env;
-const port = 3000;
+const port = process.env.PORT;
 
 async function main(){
     try {

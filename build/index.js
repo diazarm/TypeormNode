@@ -16,7 +16,6 @@ require("reflect-metadata");
 require("dotenv").config();
 const app_1 = __importDefault(require("./app"));
 const db_1 = require("./db");
-require("dotenv").config();
 const { DB_NAME } = process.env;
 const port = 3000;
 function main() {
@@ -34,4 +33,3 @@ function main() {
     });
 }
 main();
-//nota : la compilacion se hace manual con tsc y eso nos permite luego usar node build/index.js

@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { postUserContoller , getUserController, putUserController, deleteUserController, getOneUserController} from "../controllers/user.controllers";
+import { postUserController , getUserController, putUserController, deleteUserController, getOneUserController} from "../controllers/user.controllers";
 
 
 const router = Router();
 
 router.get ("/users", getUserController)
 
-router.post("/users", postUserContoller)
+router.post("/users", postUserController)
 
 router.put("/users/:id", putUserController)
 

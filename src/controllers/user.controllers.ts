@@ -3,7 +3,7 @@ import { User } from "../entities/Users";
 
 
 
-export const postUserContoller = async(req : Request, res : Response) => {
+export const postUserController = async(req : Request, res : Response) => {
     const {userName, email} = req.body
     try {
         //throw new Error('Error a proposito')
@@ -40,7 +40,7 @@ export const putUserController = async(req : Request, res : Response) => {
     try {
         const userId = parseInt(id, 10);
         const user = await User.findOne({ where: { id: userId } })
-        if (!user) return res.status(400).json({message : "User does not exists"});
+        if (!user) return res.status(500).json({message : "User does not exists"});
     
         user.userName = userName;
         user.email = email;
@@ -70,7 +70,9 @@ export const deleteUserController = async (req: Request, res: Response)=>{
             return res.status(500).json({message : error.message})
     }}
 }
-
+//localhost:4000/botilleria?names=nico   {names:nico}     respuesta = [{nico1, nico2, nico3}]   
+//? setResultado(respuesta)   
+//!  const [resultado, setResultado] = useState([])
 
 export const getOneUserController = async (req:Request,res:Response)=>{
     const {id} = req.params;
